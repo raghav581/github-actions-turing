@@ -9,5 +9,8 @@ jobs:
         run: echo "Hello World"
       - name: Repo Clone
         uses: actions/checkout@v4
+      - name: Setup Node version
+        uses: actions/setup-node@v4
+        node-version: 18.x
       - name: Add numbers
         run: node hello.js
