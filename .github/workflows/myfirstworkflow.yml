@@ -4,6 +4,8 @@ on:
 jobs:
   print:
     runs-on: ubuntu-latest
+    defaults:
+      working-directory: backend
     steps:
       - name: Print Hello
         run: echo "Hello World"
@@ -13,5 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
-      - name: Add numbers
-        run: node hello.js
+      - name: Install dependencies
+        run: npm ci
+      - name: run test
+        run: npm run test
